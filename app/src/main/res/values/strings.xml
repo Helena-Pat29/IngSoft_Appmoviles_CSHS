@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">vynils</string>
+    <string name="default_text">Haga clic en el botón para cargar información</string>
+    <string name="fetch_albums_label">Lista Albumes</string>
+    <string name="search">Search</string>
+    <string name="default_text_2">Haga clic en el botón para cargar información</string>
+    <string name="fetch_artist_label">Lista Artistas</string>
+    <string name="home">Home</string>
+</resources>
