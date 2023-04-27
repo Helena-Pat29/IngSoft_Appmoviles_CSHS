@@ -1,32 +1,65 @@
 package com.example.vynils.repository
 
+import java.lang.reflect.Type
+import com.example.vynils.brokers.ApiService
+import com.example.vynils.DTO.ResponseAlbumDTO
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.android.volley.Response
+import android.content.Context
+import com.example.vynils.DTO.PerformerDTO
 import com.example.vynils.genre.Genre
 import com.example.vynils.model.Album
+import com.example.vynils.model.Performer
 import com.example.vynils.recordlabel.RecordLabel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class AlbumRepository {
-    // Function to fetch albums (test data for now)
-    fun fetchAlbums(): List<Album> {
-        return listOf(
-            Album(
-                id = 1,
-                name = "Album 1",
-                cover = "https://example.com/cover1.jpg",
-                releaseDate = "2022-01-01",
-                description = "Description for Album 1",
-                genre = Genre.CLASSICAL,
-                recordLabel = RecordLabel.SONY
-            ),
-            Album(
-                id = 2,
-                name = "Album 2",
-                cover = "https://example.com/cover2.jpg",
-                releaseDate = "2022-02-01",
-                description = "Description for Album 2",
-                genre = Genre.ROCK,
-                recordLabel = RecordLabel.EMI
+    private val gson = Gson()
+
+    private fun responseAlbumToAlbum(responseAlbum: ResponseAlbumDTO): Album {
+        val mainPerformerDTO = responseAlbum.performers.firstOrNull() ?: PerformerDTO(-1, "Unknown", "", "", "")
+        return Album(
+            id = responseAlbum.id,
+            name = responseAlbum.name,
+            cover = responseAlbum.cover,
+            releaseDate = responseAlbum.releaseDate,
+            description = responseAlbum.description,
+            genre = Genre.valueOf(responseAlbum.genre.uppercase()),
+            recordLabel = RecordLabel.valueOf(responseAlbum.recordLabel.uppercase()),
+            mainPerformer = Performer(
+                id = mainPerformerDTO.id,
+                name = mainPerformerDTO.name,
+                image = mainPerformerDTO.image,
+                description = mainPerformerDTO.description,
+                birthDate = mainPerformerDTO.birthDate
             )
-            // Add more test data as needed
         )
+    }
+
+    suspend fun fetchAlbums(
+        context: Context
+    ): List<Album> = withContext(Dispatchers.IO) {
+        val apiService = ApiService(context)
+
+        val responseListener = suspendCancellableCoroutine<String> { continuation ->
+            val request = ApiService.getRequest("albums",
+                Response.Listener { response -> continuation.resume(response) },
+                Response.ErrorListener { error -> continuation.resumeWithException(error) }
+            )
+            apiService.instance.add(request)
+
+            continuation.invokeOnCancellation {
+                request.cancel()
+            }
+        }
+
+        val albumListType: Type = object : TypeToken<List<ResponseAlbumDTO>>() {}.type
+        val responseAlbums: List<ResponseAlbumDTO> = gson.fromJson(responseListener, albumListType)
+        responseAlbums.map { responseAlbumToAlbum(it) }
     }
 }
