@@ -9,14 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vynils.R
 import com.example.vynils.model.Album
 import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+
 
 class AlbumAdapter(private var albums: List<Album>) :
     RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
     class AlbumViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val albumTitle: TextView = itemView.findViewById(R.id.album_title)
-        val albumReleaseDate: TextView = itemView.findViewById(R.id.album_release_date)
+        val albumName: TextView = itemView.findViewById(R.id.album_name)
+        val albumDescription: TextView = itemView.findViewById(R.id.album_description)
         val albumCover: ImageView = itemView.findViewById(R.id.album_cover)
+        val performerName: TextView = itemView.findViewById(R.id.performer_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
@@ -26,9 +29,13 @@ class AlbumAdapter(private var albums: List<Album>) :
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         val album = albums[position]
-        holder.albumTitle.text = album.name
-        holder.albumReleaseDate.text = album.releaseDate.toString()
-        Picasso.get().load(album.cover).into(holder.albumCover)
+        holder.albumName.text = album.name
+        holder.albumDescription.text = album.description
+        holder.performerName.text = album.mainPerformer.name
+        Glide.with(holder.itemView.context)
+            .load(album.cover)
+            .centerCrop()
+            .into(holder.albumCover)
     }
 
     override fun getItemCount(): Int = albums.size
