@@ -1,4 +1,4 @@
-package com.example.vynils
+package com.example.vynils.ui.artist
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,21 +8,23 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
-import com.example.vynils.brokers.VolleyBroker
+import com.example.vynils.MainActivity
+import com.example.vynils.R
+import com.example.vynils.brokers.ApiService
 
 class ArtistActivity : AppCompatActivity() {
 
-    lateinit var volleyBroker: VolleyBroker
+    lateinit var volleyBroker: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artist)
 
-        volleyBroker = VolleyBroker(this.applicationContext)
+        volleyBroker = ApiService(this.applicationContext)
 
         val getResultArtistTextView : TextView = findViewById(R.id.get_result_text_artist)
         volleyBroker.instance.add(
-            VolleyBroker.getRequest("musicians",
+            ApiService.getRequest("musicians",
             { response ->
                 // Display the first 500 characters of the response string.
                 getResultArtistTextView.text = "Response is: ${response}"

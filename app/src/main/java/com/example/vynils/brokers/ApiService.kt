@@ -7,7 +7,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
-class VolleyBroker constructor(context: Context) {
+class ApiService constructor(context: Context) {
     val instance: RequestQueue = Volley.newRequestQueue(context.applicationContext)
 
     companion object{

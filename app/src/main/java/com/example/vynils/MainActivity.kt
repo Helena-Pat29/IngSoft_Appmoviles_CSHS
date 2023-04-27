@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
+import com.example.vynils.ui.album.AlbumActivity
+import com.example.vynils.ui.artist.ArtistActivity
 
 
 class MainActivity : AppCompatActivity() {
