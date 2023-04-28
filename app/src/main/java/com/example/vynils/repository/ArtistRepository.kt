@@ -53,7 +53,7 @@ class ArtistRepository {
         val apiService = ApiService(context)
 
         val responseListener = suspendCancellableCoroutine<String> { continuation ->
-            val request = ApiService.getRequest("artists",
+            val request = ApiService.getRequest("musicians",
                 Response.Listener { response -> continuation.resume(response) },
                 Response.ErrorListener { error -> continuation.resumeWithException(error) }
             )
