@@ -24,9 +24,7 @@ data class PerformerDTO(
     val name: String,
     val image: String,
     val description: String,
-    val birthDate: String,
-//    val albums: List<ResponseAlbumDTO>,
-//    val performersDate: List<PerformerDateDTO>
+    val birthDate: String
 )
 
 data class PerformerDateDTO (
