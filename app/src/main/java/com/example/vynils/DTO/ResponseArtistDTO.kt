@@ -10,7 +10,7 @@ data class ResponseArtistDTO(
     val performerPrize: List<PerformerPrizeDTO>
 )
 
-data class AlbumDTO(
+data class AlbumArtistDTO(
     val id: Int,
     val name: String,
     val cover: String,
@@ -23,14 +23,4 @@ data class AlbumDTO(
 data class PerformerPrizeDTO(
     val id: Int,
     val premiationDate: String
-)
-
-data class AlbumArtistDTO(
-    val id: Int,
-    val name: String,
-    val cover: String,
-    val releaseDate: String,
-    val description: String,
-    val genre: String,
-    val recordLabel: String
 )
