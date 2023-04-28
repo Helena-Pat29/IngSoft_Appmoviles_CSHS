@@ -1,57 +1,46 @@
 package com.example.vynils.ui.artist
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.TextView
-import com.example.vynils.MainActivity
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.vynils.R
-import com.example.vynils.brokers.ApiService
 
 class ArtistActivity : AppCompatActivity() {
-
-    lateinit var volleyBroker: ApiService
+    private val viewModel: ArtistViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artist)
 
-        volleyBroker = ApiService(this.applicationContext)
+        val toolbar: Toolbar = findViewById(R.id.artist_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Artists"
+        // Initialize RecyclerView and its adapter
+        val recyclerView: RecyclerView = findViewById(R.id.artist_recycler_view)
+        val adapter = ArtistAdapter(emptyList())
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
 
-        val getResultArtistTextView : TextView = findViewById(R.id.get_result_text_artist)
-        volleyBroker.instance.add(
-            ApiService.getRequest("musicians",
-            { response ->
-                // Display the first 500 characters of the response string.
-                getResultArtistTextView.text = "Response is: ${response}"
-            },
-            {
-                Log.d("TAG", it.toString())
-                getResultArtistTextView.text = "That didn't work!"
-            }
-        ))
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.layout_menu, menu)
-        supportActionBar!!.title = "Artistas"
-        return true
+        // Observe the artists LiveData and update the UI when the data changes
+        viewModel.artists.observe(this) { artists ->
+            Log.d("ArtistActivity", "Artists updated: $artists")
+            adapter.updateArtists(artists)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.home -> {
-                // Create an intent with a destination of the other Activity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+            android.R.id.home -> {
+                onBackPressed()
+                true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
