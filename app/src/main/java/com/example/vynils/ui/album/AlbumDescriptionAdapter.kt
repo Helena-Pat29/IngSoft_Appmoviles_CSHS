@@ -3,12 +3,15 @@ package com.example.vynils.ui.album
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.ListView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Album
+import org.w3c.dom.Text
 
 class AlbumDescriptionAdapter(private var albums: Album) :
     RecyclerView.Adapter<AlbumDescriptionAdapter.AlbumViewHolder>() {
@@ -16,8 +19,11 @@ class AlbumDescriptionAdapter(private var albums: Album) :
         val albumName: TextView = itemView.findViewById(R.id.album_name)
         val albumDescription: TextView = itemView.findViewById(R.id.album_description)
         val albumCover: ImageView = itemView.findViewById(R.id.album_cover)
+        var albumTrackId: TextView = itemView.findViewById(R.id.track_id)
+        var albumTrackName: TextView = itemView.findViewById(R.id.track_name)
+        var albumTrackDuration: TextView = itemView.findViewById(R.id.track_duration)
         //val albumYear: TextView = itemView.findViewById(R.id.album_year)
-        val albumDuration: TextView = itemView.findViewById(R.id.track_duration)
+        //val albumDuration: TextView = itemView.findViewById(R.id.track_duration)
         val performerName: TextView = itemView.findViewById(R.id.performer_name)
     }
 
@@ -28,11 +34,17 @@ class AlbumDescriptionAdapter(private var albums: Album) :
 
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         val album = albums
+
         holder.albumName.text = album.name
         holder.albumDescription.text = album.description
         holder.performerName.text = album.mainPerformer.name
         //holder.albumYear.text = album.releaseDate
-        holder.albumDuration.text = album.track[1].duration
+        if(album.track.size != 0) {
+            holder.albumTrackId.text = album.track[position].id.toString()
+            holder.albumTrackName.text = album.track[position].name
+            holder.albumTrackDuration.text = album.track[position].duration
+        }
+        //holder.albumDuration.text = album.track[1].duration
         Glide.with(holder.itemView.context)
             .load(album.cover)
             .centerCrop()
@@ -48,7 +60,12 @@ class AlbumDescriptionAdapter(private var albums: Album) :
         return "0"
     }
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int {
+        if (albums.track.size == 0) {
+            return 1
+        }
+        return  albums.track.size
+    }
 
     fun updateAlbums(newAlbums: Album) {
         albums = newAlbums
