@@ -1,5 +1,8 @@
 package com.example.vynils.DTO
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class ResponseAlbumDTO(
     val id: Int,
     val name: String,
@@ -13,11 +16,12 @@ data class ResponseAlbumDTO(
     val comments: List<CommentDTO>
 )
 
+@Parcelize
 data class TrackDTO(
     val id: Int,
     val name: String,
     val duration: String
-)
+) : Parcelable
 
 data class PerformerDTO(
     val id: Int,
