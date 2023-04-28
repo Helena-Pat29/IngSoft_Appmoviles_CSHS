@@ -27,11 +27,6 @@ data class PerformerDTO(
     val birthDate: String
 )
 
-data class PerformerDateDTO (
-    val id: Int,
-    val premiationDate: String
-)
-
 data class CommentDTO(
     val id: Int,
     val description: String,
