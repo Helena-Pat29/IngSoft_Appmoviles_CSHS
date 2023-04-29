@@ -1,9 +1,7 @@
 package com.example.vynils.repository
 
 import android.content.Context
-import android.util.Log
 import com.android.volley.Response
-import com.example.vynils.DTO.AlbumArtistDTO
 import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.brokers.ApiService
 import com.example.vynils.genre.Genre
@@ -52,7 +50,6 @@ class ArtistRepository {
                 Response.Listener { response -> continuation.resume(response) },
                 Response.ErrorListener { error -> continuation.resumeWithException(error) }
             )
-            Log.d("log1", request.toString())
             apiService.instance.add(request)
 
             continuation.invokeOnCancellation {
@@ -63,7 +60,6 @@ class ArtistRepository {
         val artistListType: Type = object : TypeToken<List<ResponseArtistDTO>>() {}.type
         val responseArtists: List<ResponseArtistDTO> =
             gson.fromJson(responseListener, artistListType)
-        Log.d("log4", responseArtists.toString())
         responseArtists.map { responseArtistToArtist(it) }
     }
 }
