@@ -23,30 +23,24 @@ class ArtistRepository {
     private val gson = Gson()
 
     private fun responseArtistToArtist(responseArtist: ResponseArtistDTO): Artist {
-        val mainAlbumArtistDTO = responseArtist.albumsArtists.firstOrNull() ?: AlbumArtistDTO(
-            -1,
-            "Unknown",
-            "",
-            "",
-            "",
-            "",
-            ""
-        )
+        val albumArtists = responseArtist.albumsArtists?.map { albumArtistDTO ->
+            AlbumArtist(
+                id = albumArtistDTO.id,
+                name = albumArtistDTO.name,
+                cover = albumArtistDTO.cover,
+                releaseDate = albumArtistDTO.releaseDate,
+                description = albumArtistDTO.description,
+                genre = Genre.valueOf(albumArtistDTO.genre.uppercase()),
+                recordLabel = RecordLabel.valueOf(albumArtistDTO.recordLabel.uppercase())
+            )
+        } ?: emptyList()
         return Artist(
             id = responseArtist.id,
             name = responseArtist.name,
             image = responseArtist.image,
             description = responseArtist.description,
             birthDate = responseArtist.birthDate,
-            albums = AlbumArtist(
-                id = mainAlbumArtistDTO.id,
-                name = mainAlbumArtistDTO.name,
-                cover = mainAlbumArtistDTO.cover,
-                releaseDate = mainAlbumArtistDTO.releaseDate,
-                description = mainAlbumArtistDTO.description,
-                genre = Genre.valueOf(mainAlbumArtistDTO.genre.uppercase()),
-                recordLabel = RecordLabel.valueOf(mainAlbumArtistDTO.recordLabel.uppercase())
-            )
+            albums = albumArtists
         )
     }
 
