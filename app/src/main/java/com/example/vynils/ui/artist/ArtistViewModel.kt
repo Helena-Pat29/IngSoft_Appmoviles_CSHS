@@ -1,6 +1,7 @@
 package com.example.vynils.ui.artist
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,6 +29,7 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch {
             try {
                 val fetchedArtists = repository.fetchArtists(getApplication())
+                Log.d("log3", fetchedArtists.toString())
                 _artists.value = fetchedArtists
             } catch (e: Exception) {
                 _error.value = e
