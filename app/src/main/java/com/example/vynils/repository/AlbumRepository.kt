@@ -11,6 +11,7 @@ import com.example.vynils.DTO.PerformerDTO
 import com.example.vynils.genre.Genre
 import com.example.vynils.model.Album
 import com.example.vynils.model.Performer
+import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.recordlabel.RecordLabel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -44,19 +45,9 @@ class AlbumRepository {
     suspend fun fetchAlbums(
         context: Context
     ): List<Album> = withContext(Dispatchers.IO) {
-        val apiService = ApiService(context)
+        val apiService = NetworkServiceAdapter(context)
 
-        val responseListener = suspendCancellableCoroutine<String> { continuation ->
-            val request = ApiService.getRequest("albums",
-                Response.Listener { response -> continuation.resume(response) },
-                Response.ErrorListener { error -> continuation.resumeWithException(error) }
-            )
-            apiService.instance.add(request)
-
-            continuation.invokeOnCancellation {
-                request.cancel()
-            }
-        }
+        val responseListener = apiService.fetchAlbums()
 
         val albumListType: Type = object : TypeToken<List<ResponseAlbumDTO>>() {}.type
         val responseAlbums: List<ResponseAlbumDTO> = gson.fromJson(responseListener, albumListType)

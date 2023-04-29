@@ -2,6 +2,8 @@ package com.example.vynils.repository
 
 import android.content.Context
 import com.android.volley.Response
+import com.example.vynils.network.NetworkServiceAdapter
+import com.example.vynils.DTO.AlbumArtistDTO
 import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.brokers.ApiService
 import com.example.vynils.genre.Genre
@@ -43,19 +45,9 @@ class ArtistRepository {
     }
 
     suspend fun fetchArtists(context: Context): List<Artist> = withContext(Dispatchers.IO) {
-        val apiService = ApiService(context)
+        val apiService = NetworkServiceAdapter(context)
+        val responseListener = apiService.fetchArtists()
 
-        val responseListener = suspendCancellableCoroutine<String> { continuation ->
-            val request = ApiService.getRequest("musicians",
-                Response.Listener { response -> continuation.resume(response) },
-                Response.ErrorListener { error -> continuation.resumeWithException(error) }
-            )
-            apiService.instance.add(request)
-
-            continuation.invokeOnCancellation {
-                request.cancel()
-            }
-        }
 
         val artistListType: Type = object : TypeToken<List<ResponseArtistDTO>>() {}.type
         val responseArtists: List<ResponseArtistDTO> =
