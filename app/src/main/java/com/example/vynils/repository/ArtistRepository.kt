@@ -3,6 +3,7 @@ package com.example.vynils.repository
 import android.content.Context
 import android.util.Log
 import com.android.volley.Response
+import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.DTO.AlbumArtistDTO
 import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.brokers.ApiService
@@ -23,48 +24,32 @@ class ArtistRepository {
     private val gson = Gson()
 
     private fun responseArtistToArtist(responseArtist: ResponseArtistDTO): Artist {
-        val mainAlbumArtistDTO = responseArtist.albumsArtists.firstOrNull() ?: AlbumArtistDTO(
-            -1,
-            "Unknown",
-            "",
-            "",
-            "",
-            "",
-            ""
-        )
+        val albumArtists = responseArtist.albumsArtists?.map { albumArtistDTO ->
+            AlbumArtist(
+                id = albumArtistDTO.id,
+                name = albumArtistDTO.name,
+                cover = albumArtistDTO.cover,
+                releaseDate = albumArtistDTO.releaseDate,
+                description = albumArtistDTO.description,
+                genre = Genre.valueOf(albumArtistDTO.genre.uppercase()),
+                recordLabel = RecordLabel.valueOf(albumArtistDTO.recordLabel.uppercase())
+            )
+        } ?: emptyList()
+
         return Artist(
             id = responseArtist.id,
             name = responseArtist.name,
             image = responseArtist.image,
             description = responseArtist.description,
             birthDate = responseArtist.birthDate,
-            albums = AlbumArtist(
-                id = mainAlbumArtistDTO.id,
-                name = mainAlbumArtistDTO.name,
-                cover = mainAlbumArtistDTO.cover,
-                releaseDate = mainAlbumArtistDTO.releaseDate,
-                description = mainAlbumArtistDTO.description,
-                genre = Genre.valueOf(mainAlbumArtistDTO.genre.uppercase()),
-                recordLabel = RecordLabel.valueOf(mainAlbumArtistDTO.recordLabel.uppercase())
-            )
+            albums = albumArtists
         )
     }
 
     suspend fun fetchArtists(context: Context): List<Artist> = withContext(Dispatchers.IO) {
-        val apiService = ApiService(context)
+        val apiService = NetworkServiceAdapter(context)
 
-        val responseListener = suspendCancellableCoroutine<String> { continuation ->
-            val request = ApiService.getRequest("musicians",
-                Response.Listener { response -> continuation.resume(response) },
-                Response.ErrorListener { error -> continuation.resumeWithException(error) }
-            )
-            Log.d("log1", request.toString())
-            apiService.instance.add(request)
-
-            continuation.invokeOnCancellation {
-                request.cancel()
-            }
-        }
+        val responseListener = apiService.fetchArtists()
 
         val artistListType: Type = object : TypeToken<List<ResponseArtistDTO>>() {}.type
         val responseArtists: List<ResponseArtistDTO> =

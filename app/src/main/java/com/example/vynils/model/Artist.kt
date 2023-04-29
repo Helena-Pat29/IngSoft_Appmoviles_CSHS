@@ -6,5 +6,5 @@ data class Artist(
     val image: String,
     val description: String,
     val birthDate: String,
-    val albums: AlbumArtist,
+    val albums: List<AlbumArtist>,
 )
