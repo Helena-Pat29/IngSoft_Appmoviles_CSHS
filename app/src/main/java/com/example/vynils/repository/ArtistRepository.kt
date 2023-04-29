@@ -2,11 +2,8 @@ package com.example.vynils.repository
 
 import android.content.Context
 import com.android.volley.Response
-<<<<<<< HEAD
 import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.DTO.AlbumArtistDTO
-=======
->>>>>>> origin/HU03_ConsultarArtistas
 import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.brokers.ApiService
 import com.example.vynils.genre.Genre
@@ -37,10 +34,6 @@ class ArtistRepository {
                 recordLabel = RecordLabel.valueOf(albumArtistDTO.recordLabel.uppercase())
             )
         } ?: emptyList()
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/HU03_ConsultarArtistas
         return Artist(
             id = responseArtist.id,
             name = responseArtist.name,
