@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="2dp">
+    android:padding="10dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_center"
@@ -18,21 +18,22 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vertical_center"
-        app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
+        app:layout_constraintVertical_bias="0.05"
         tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/album_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="2dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/album_cover"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/album_cover"
-        tools:text="Album Name" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Album Name" />
 
     <TextView
         android:id="@+id/album_description"
@@ -52,6 +53,6 @@
         app:layout_constraintEnd_toEndOf="@+id/album_description"
         app:layout_constraintStart_toStartOf="@+id/album_description"
         app:layout_constraintTop_toBottomOf="@+id/album_description"
-        tools:text="Performer Name" />
+        android:text="Performer Name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
