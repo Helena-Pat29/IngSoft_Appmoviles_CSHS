@@ -1,10 +1,12 @@
 package com.example.vynils.repository
 
 import android.content.Context
-import android.util.Log
 import com.android.volley.Response
+<<<<<<< HEAD
 import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.DTO.AlbumArtistDTO
+=======
+>>>>>>> origin/HU03_ConsultarArtistas
 import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.brokers.ApiService
 import com.example.vynils.genre.Genre
@@ -35,7 +37,10 @@ class ArtistRepository {
                 recordLabel = RecordLabel.valueOf(albumArtistDTO.recordLabel.uppercase())
             )
         } ?: emptyList()
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/HU03_ConsultarArtistas
         return Artist(
             id = responseArtist.id,
             name = responseArtist.name,
@@ -48,13 +53,12 @@ class ArtistRepository {
 
     suspend fun fetchArtists(context: Context): List<Artist> = withContext(Dispatchers.IO) {
         val apiService = NetworkServiceAdapter(context)
-
         val responseListener = apiService.fetchArtists()
+
 
         val artistListType: Type = object : TypeToken<List<ResponseArtistDTO>>() {}.type
         val responseArtists: List<ResponseArtistDTO> =
             gson.fromJson(responseListener, artistListType)
-        Log.d("log4", responseArtists.toString())
         responseArtists.map { responseArtistToArtist(it) }
     }
 }
