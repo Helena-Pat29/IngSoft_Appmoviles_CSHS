@@ -16,6 +16,10 @@ class ArtistDescriptionAdapter(private var artists: Artist) :
         val artistName: TextView = itemView.findViewById(R.id.artist_name)
         val artistDescription: TextView = itemView.findViewById(R.id.artist_description)
         val artistImage: ImageView = itemView.findViewById(R.id.artist_image)
+        val artistBithDate: TextView = itemView.findViewById(R.id.artist_birthdate)
+        val albumName:TextView=itemView.findViewById(R.id.albumartist_name)
+        val albumDescription:TextView=itemView.findViewById(R.id.albumartist_description)
+        val albumCover:ImageView=itemView.findViewById(R.id.albumartist_cover)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
@@ -25,15 +29,29 @@ class ArtistDescriptionAdapter(private var artists: Artist) :
 
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
         val artist = artists
+        if (position <1){
         holder.artistName.text = artist.name
         holder.artistDescription.text = artist.description
+        holder.artistBithDate.text = artist.birthDate
         Glide.with(holder.itemView.context)
             .load(artist.image)
             .centerCrop()
             .into(holder.artistImage)
+        }
+        holder.albumName.text=artist.albums[position].name.toString()
+        holder.albumDescription.text=artist.albums[position].description
+        Glide.with(holder.itemView.context)
+            .load(artist.albums[position].cover)
+            .centerCrop()
+            .into(holder.albumCover)
     }
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int {
+        if (artists.albums.size == 0) {
+            return 1
+        }
+        return artists.albums.size
+    }
 
     fun updateArtists(newArtists: Artist) {
         artists = newArtists

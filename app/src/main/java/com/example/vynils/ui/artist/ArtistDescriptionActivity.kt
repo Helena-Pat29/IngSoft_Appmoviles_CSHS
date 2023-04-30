@@ -25,7 +25,7 @@ class ArtistDescriptionActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.artist_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "artist description"
+        supportActionBar?.title = artistList.name.toString()
 
         var recyclerView: RecyclerView = findViewById(R.id.artist_details)
         var adapter = ArtistDescriptionAdapter(artistList)

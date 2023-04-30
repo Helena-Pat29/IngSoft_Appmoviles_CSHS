@@ -10,5 +10,5 @@ data class Artist(
     val image: String,
     val description: String,
     val birthDate: String,
-    val albums: List<AlbumArtist>,
+    val albums: List<AlbumArtistDTO>,
 ) : Parcelable
