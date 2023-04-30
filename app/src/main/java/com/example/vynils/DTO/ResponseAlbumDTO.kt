@@ -3,6 +3,7 @@ package com.example.vynils.DTO
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+
 data class ResponseAlbumDTO(
     val id: Int,
     val name: String,
