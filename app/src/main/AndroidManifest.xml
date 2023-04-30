@@ -18,8 +18,7 @@
         <activity
             android:name=".ui.artist.ArtistDescriptionActivity"
             android:exported="false"
-            android:label="@string/title_activity_artist_description"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.Vynils.NoActionBar" />
         <activity
             android:name=".ui.album.AlbumActivity"
             android:exported="false"

@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
-import com.example.vynils.model.Album
 import com.example.vynils.model.Artist
-import com.example.vynils.ui.album.AlbumAdapter
 
 class ArtistDescriptionAdapter(private var artists: Artist) :
     RecyclerView.Adapter<ArtistDescriptionAdapter.ArtistViewHolder>() {

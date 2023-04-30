@@ -2,9 +2,7 @@ package com.example.vynils.ui.artist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,17 +20,17 @@ class ArtistDescriptionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description_artist)
 
-        //var albumList : Album = intent.getParcelableExtra(AlbumActivity.NEXT_SCREEN)!!
+        var artistList : Artist = intent.getParcelableExtra(ArtistActivity.NEXT_SCREEN)!!
 
         val toolbar: Toolbar = findViewById(R.id.artist_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Artist Description"
+        supportActionBar?.title = "artist description"
 
         var recyclerView: RecyclerView = findViewById(R.id.artist_details)
-        //var adapter = ArtistDescriptionActivity(albumList)
+        var adapter = ArtistDescriptionAdapter(artistList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        //recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
 
     }
 
