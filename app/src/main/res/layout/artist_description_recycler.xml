@@ -42,11 +42,10 @@
         android:id="@+id/artist_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/artist_image"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/artist_image"
         tools:text="Artist Name" />
@@ -60,8 +59,8 @@
 
     <ImageView
         android:id="@+id/albumartist_cover"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="149dp"
+        android:layout_height="124dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,15 +72,14 @@
         android:id="@+id/albumartist_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
         android:text="Album Name"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/albumartist_cover" />
 
     <TextView
         android:id="@+id/albumartist_description"
-        android:layout_width="312dp"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/albumartist_name"
         app:layout_constraintHorizontal_bias="0.0"
