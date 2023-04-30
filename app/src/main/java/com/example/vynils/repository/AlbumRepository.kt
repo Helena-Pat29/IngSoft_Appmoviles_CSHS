@@ -32,6 +32,7 @@ class AlbumRepository {
             description = responseAlbum.description,
             genre = Genre.valueOf(responseAlbum.genre.uppercase()),
             recordLabel = RecordLabel.valueOf(responseAlbum.recordLabel.uppercase()),
+            track = responseAlbum.tracks,
             mainPerformer = Performer(
                 id = mainPerformerDTO.id,
                 name = mainPerformerDTO.name,
