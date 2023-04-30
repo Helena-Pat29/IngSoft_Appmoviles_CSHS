@@ -1,5 +1,6 @@
 package com.example.vynils.ui.album
 
+import android.content.Intent
 import com.example.vynils.ui.album.AlbumViewModel
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -10,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import com.example.vynils.R
 import android.util.Log
+import android.widget.Button
+import com.example.vynils.MainActivity
+import com.example.vynils.model.Album
+import com.example.vynils.ui.artist.ArtistActivity
 
 class AlbumActivity : AppCompatActivity() {
     private val viewModel: AlbumViewModel by viewModels()
@@ -33,6 +38,18 @@ class AlbumActivity : AppCompatActivity() {
             Log.d("AlbumActivity", "Albums updated: $albums")
             adapter.updateAlbums(albums)
         }
+
+        adapter.setOnClickListener(object:
+            AlbumAdapter.OnClickListener {
+            override fun onClick(position: Int, model: Album){
+                val intent = Intent(this@AlbumActivity, AlbumDescriptionActivity::class.java)
+                intent.putExtra(NEXT_SCREEN, model)
+                startActivity(intent)
+            }
+        })
+    }
+    companion object{
+        val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

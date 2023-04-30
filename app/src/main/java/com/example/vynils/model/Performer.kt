@@ -9,4 +9,4 @@ data class Performer(
     val image: String?,
     val description: String?,
     val birthDate: String?
-)  : Parcelable
+) : Parcelable
