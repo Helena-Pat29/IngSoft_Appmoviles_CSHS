@@ -20,12 +20,17 @@
             android:exported="false"
             android:theme="@style/Theme.Vynils.NoActionBar" />
         <activity
+            android:name=".ui.artist.ArtistDescriptionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vynils.NoActionBar" />
+        <activity
             android:name=".ui.album.AlbumActivity"
             android:exported="false"
             android:theme="@style/Theme.Vynils.NoActionBar" />
         <activity
             android:name=".ui.artist.ArtistActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Vynils.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -35,6 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TestActivity" />
     </application>
 
 </manifest>
