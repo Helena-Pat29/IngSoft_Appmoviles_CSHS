@@ -9,6 +9,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vynils.R
+import android.content.Intent
+import android.widget.Button
+import com.example.vynils.model.Album
+import com.example.vynils.model.Artist
+import com.example.vynils.ui.album.AlbumAdapter
+import com.example.vynils.ui.artist.ArtistActivity
 
 class ArtistActivity : AppCompatActivity() {
     private val viewModel: ArtistViewModel by viewModels()
@@ -32,6 +38,20 @@ class ArtistActivity : AppCompatActivity() {
             Log.d("ArtistActivity", "Artists updated: $artists")
             adapter.updateArtists(artists)
         }
+
+        adapter.setOnClickListener(object:
+            ArtistAdapter.OnClickListener {
+            override fun onClick(position: Int, model: Artist){
+                val intent = Intent(this@ArtistActivity, ArtistDescriptionActivity::class.java)
+                intent.putExtra(NEXT_SCREEN, model)
+                startActivity(intent)
+            }
+        })
+
+
+    }
+    companion object{
+        val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

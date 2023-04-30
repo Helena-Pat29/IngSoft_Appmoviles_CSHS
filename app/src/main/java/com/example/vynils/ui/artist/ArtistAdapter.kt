@@ -1,5 +1,6 @@
 package com.example.vynils.ui.artist
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Artist
+import android.content.Intent
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.example.vynils.model.Album
 
 class ArtistAdapter(private var artists: List<Artist>) :
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>() {
+
+    private var onClickListener: OnClickListener? = null
 
     class ArtistViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val artistName: TextView = itemView.findViewById(R.id.artist_name)
@@ -32,6 +39,11 @@ class ArtistAdapter(private var artists: List<Artist>) :
             .load(artist.image)
             .centerCrop()
             .into(holder.artistImage)
+        holder.itemView.setOnClickListener {
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, artist )
+            }
+        }
     }
 
     override fun getItemCount(): Int = artists.size
@@ -39,5 +51,15 @@ class ArtistAdapter(private var artists: List<Artist>) :
     fun updateArtists(newArtists: List<Artist>) {
         artists = newArtists
         notifyDataSetChanged()
+    }
+
+    // A function to bind the onclickListener.
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+    // onClickListener Interface
+    interface OnClickListener {
+        fun onClick(position: Int, model: Artist)
     }
 }
