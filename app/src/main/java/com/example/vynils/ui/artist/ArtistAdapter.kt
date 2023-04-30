@@ -41,7 +41,7 @@ class ArtistAdapter(private var artists: List<Artist>) :
             .into(holder.artistImage)
         holder.itemView.setOnClickListener {
             if (onClickListener != null) {
-                onClickListener!!.onClick(position, artist )
+                onClickListener!!.onClick(position, artist)
             }
         }
     }

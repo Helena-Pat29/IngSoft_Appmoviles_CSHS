@@ -40,7 +40,7 @@ class ArtistRepository {
             image = responseArtist.image,
             description = responseArtist.description,
             birthDate = responseArtist.birthDate,
-            albums = responseArtist.albumsArtists
+            albums = albumArtists
         )
     }
 
