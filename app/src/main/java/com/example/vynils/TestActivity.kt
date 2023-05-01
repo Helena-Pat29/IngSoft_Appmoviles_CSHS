@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.album_item)
+        val layoutResId = intent.getIntExtra("layoutResId", R.layout.album_item)
+        setContentView(layoutResId)
     }
 }
