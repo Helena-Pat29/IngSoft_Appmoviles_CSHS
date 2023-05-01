@@ -5,16 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.artist.ArtistDescriptionActivity"
-    >
-
+    tools:context=".ui.artist.ArtistDescriptionActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/artist_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:elevation="4dp"
+        android:elevation="0dp"
         app:titleTextAppearance="@style/TextAppearance.Vynils.Toolbar.Title" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/artist_description_recycler"/>
+        tools:listitem="@layout/artist_description_recycler" />
 
 
 </LinearLayout>
