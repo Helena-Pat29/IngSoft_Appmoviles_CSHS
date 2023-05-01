@@ -3,40 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.artist.ArtistDescriptionActivity"
-    >
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/artist_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/artist_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/artist_name"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/artist_name"
-        app:layout_constraintTop_toBottomOf="@+id/artist_name"
-        tools:text="Description" />
-
-    <!--tEST RECYCLER VIEW ALBUM ITEM-->
 
     <TextView
         android:id="@+id/artist_name"
@@ -45,47 +22,25 @@
         android:layout_marginEnd="8dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/artist_image"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/artist_image"
-        tools:text="Artist Name" />
+        android:text="Artist Name" />
+
+    <TextView
+        android:id="@+id/artist_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/artist_name"
+        app:layout_constraintStart_toStartOf="@+id/artist_name"
+        app:layout_constraintTop_toBottomOf="@+id/artist_name"
+        tools:text="Description" />
 
     <TextView
         android:id="@+id/artist_birthdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/artist_name"
         app:layout_constraintTop_toBottomOf="@+id/artist_description" />
-
-    <ImageView
-        android:id="@+id/albumartist_cover"
-        android:layout_width="149dp"
-        android:layout_height="124dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/vertical_center"
-        app:layout_constraintVertical_bias="0.05"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/albumartist_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Album Name"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/albumartist_cover" />
-
-    <TextView
-        android:id="@+id/albumartist_description"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/albumartist_name"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/albumartist_name"
-        app:layout_constraintTop_toBottomOf="@+id/albumartist_name"
-        tools:text="Description" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
