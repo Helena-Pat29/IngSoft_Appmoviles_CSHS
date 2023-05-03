@@ -32,6 +32,10 @@
             android:exported="false"
             android:theme="@style/Theme.Vynils.NoActionBar" />
         <activity
+            android:name=".ui.collector.CollectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vynils.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
