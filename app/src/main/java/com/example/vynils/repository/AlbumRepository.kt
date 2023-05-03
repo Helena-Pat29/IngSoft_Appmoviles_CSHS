@@ -23,7 +23,7 @@ class AlbumRepository {
     private val gson = Gson()
 
     private fun responseAlbumToAlbum(responseAlbum: ResponseAlbumDTO): Album {
-        val mainPerformerDTO = responseAlbum.performers.firstOrNull() ?: PerformerDTO(-1, "Unknown", "", "", "")
+        val mainPerformerDTO = responseAlbum.performers.firstOrNull() ?: PerformerDTO(-1, "Unknown", "", "", "", "")
         return Album(
             id = responseAlbum.id,
             name = responseAlbum.name,
@@ -38,7 +38,7 @@ class AlbumRepository {
                 name = mainPerformerDTO.name,
                 image = mainPerformerDTO.image,
                 description = mainPerformerDTO.description,
-                birthDate = mainPerformerDTO.birthDate
+                date = mainPerformerDTO.birthDate
             )
         )
     }
