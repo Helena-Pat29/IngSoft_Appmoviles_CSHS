@@ -24,7 +24,8 @@ data class AlbumArtistDTO(
    // val recordLabel: RecordLabel
 ) : Parcelable
 
+@Parcelize
 data class PerformerPrizeDTO(
     val id: Int,
     val premiationDate: String
-)
+) : Parcelable
