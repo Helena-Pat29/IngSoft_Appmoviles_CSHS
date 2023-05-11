@@ -46,6 +46,22 @@ class ListarAlbumTest {
         onView(allOf(withId(R.id.album_recycler_view), hasDescendant(withText("Poeta del pueblo"))))
     }
 
+    @Test
+    fun albumsDetailsAndVerifyData() {
+        // Click on the "Listar Albumes" button
+        onView(withId(R.id.fetch_albums_button))
+            .perform(click())
+
+        // e.g., IdlingResource or Thread.sleep() if appropriate
+        Thread.sleep(5000)
+
+        onView(allOf(withId(R.id.album_recycler_view), hasDescendant(withText("Queen"))))
+            .perform(click())
+
+        onView(allOf(withId(R.id.album_details), hasDescendant(withText("Queen"))))
+        onView(allOf(withId(R.id.album_details), hasDescendant(withText("Queen es una banda británica de rock formada en 1970 en Londres por el cantante Freddie Mercury, el guitarrista Brian May, el baterista Roger Taylor y el bajista John Deacon. Si bien el grupo ha presentado bajas de dos de sus miembros (Mercury, fallecido en 1991, y Deacon, retirado en 1997), los integrantes restantes, May y Taylor, continúan trabajando bajo el nombre Queen, por lo que la banda aún se considera activa."))))
+    }
+
     // Custom matcher to check the number of items in a RecyclerView
     fun withItemCount(expectedCount: Int): Matcher<View> {
         return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {

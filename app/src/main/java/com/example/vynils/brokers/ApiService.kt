@@ -6,6 +6,8 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.JsonObjectRequest
+import org.json.JSONObject
 
 class ApiService constructor(context: Context) {
     val instance: RequestQueue = Volley.newRequestQueue(context.applicationContext)
@@ -14,6 +16,10 @@ class ApiService constructor(context: Context) {
         const val BASE_URL= "https://back-vynils-grupo19.herokuapp.com/"
         fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
             return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
+        }
+
+        fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
+            return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
         }
 
     }

@@ -13,6 +13,7 @@ import com.example.vynils.repository.CollectorRepository
 import com.example.vynils.ui.album.AlbumActivity
 import com.example.vynils.ui.artist.ArtistActivity
 import com.example.vynils.ui.collector.CollectorActivity
+import com.example.vynils.ui.prize.PrizeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val getAlbumButton: Button = findViewById(R.id.fetch_albums_button)
         val getArtistButton: Button = findViewById(R.id.fetch_artist_button)
         val getCollectorsButton: Button = findViewById(R.id.fetch_collectors_button)
+        val postPrizeButton: Button = findViewById(R.id.post_prize_button)
 
 
         getAlbumButton.setOnClickListener {
@@ -40,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         getCollectorsButton.setOnClickListener {
             val collectorList = Intent(this, CollectorActivity::class.java)
             startActivity(collectorList)
+        }
+
+        postPrizeButton.setOnClickListener {
+            val prizePost = Intent(this, PrizeActivity::class.java)
+            startActivity(prizePost)
         }
 
     }

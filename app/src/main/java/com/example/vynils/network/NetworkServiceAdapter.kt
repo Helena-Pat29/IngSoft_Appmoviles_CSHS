@@ -69,6 +69,19 @@ class NetworkServiceAdapter (private val context: Context) {
         }
     }
 
+    suspend fun postPrize(prize: JSONObject): String = suspendCancellableCoroutine { continuation ->
+        val request = ApiService.postRequest("prizes", prize,
+            Response.Listener<JSONObject> { response -> continuation.resume(response.toString()) },
+            Response.ErrorListener { error -> continuation.resumeWithException(error) }
+
+        )
+        apiService.instance.add(request)
+
+        continuation.invokeOnCancellation {
+            request.cancel()
+        }
+    }
+
 
 
     //TESTING THIS FUNCTION
