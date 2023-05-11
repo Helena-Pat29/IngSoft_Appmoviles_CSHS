@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">vynils</string>
     <string name="default_text">Haga clic en el botón para cargar información</string>
-    <string name="fetch_albums_label">Lista Albumes</string>
+    <string name="fetch_albums_label">Listar Albumes</string>
     <string name="search">Search</string>
     <string name="default_text_2">Haga clic en el botón para cargar información</string>
-    <string name="fetch_artist_label">Lista Artistas</string>
+    <string name="fetch_artist_label">Listar Artistas</string>
+    <string name="fetch_collector_label">Listar Coleccionistas</string>
     <string name="home">Home</string>
     <string name="title_activity_artist_description">ArtistDescriptionActivity</string>
     <!-- Strings used for fragments for navigation -->

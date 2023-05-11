@@ -38,6 +38,25 @@ class NetworkServiceAdapter (private val context: Context) {
         }
     }
 
+    suspend fun fetchCollectors(): String = suspendCancellableCoroutine { continuation ->
+        Log.d("API", "Making API call to fetch collectors")
+        val request = ApiService.getRequest("collectors",
+            Response.Listener { response ->
+                Log.d("API", "API call successful $response")
+                continuation.resume(response)
+            },
+            Response.ErrorListener { error ->
+                Log.e("API", "API call failed $error", error)
+                continuation.resumeWithException(error)
+            }
+        )
+
+        apiService.instance.add(request)
+
+        continuation.invokeOnCancellation {
+            request.cancel()
+        }
+    }
     suspend fun fetchArtists(): String = suspendCancellableCoroutine { continuation ->
         val request = ApiService.getRequest("musicians",
             Response.Listener { response -> continuation.resume(response) },
@@ -49,6 +68,8 @@ class NetworkServiceAdapter (private val context: Context) {
             request.cancel()
         }
     }
+
+
 
     //TESTING THIS FUNCTION
  //   fun getAlbums(albumId:Int, onComplete:(resp:List<Album>)->Unit, onError: (error: VolleyError)->Unit) {
