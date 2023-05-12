@@ -1,7 +1,6 @@
 package com.example.vynils.repository
 
 import android.content.Context
-import com.example.vynils.DTO.PerformerDTO
 import com.example.vynils.DTO.PerformerPrizeDTO
 import com.example.vynils.DTO.ResponsePrizeDTO
 import com.example.vynils.model.Prize

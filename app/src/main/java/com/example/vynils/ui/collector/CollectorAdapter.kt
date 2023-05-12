@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Collector
-import com.squareup.picasso.Picasso
 
 class CollectorAdapter(private var collectors: List<Collector>) :
     RecyclerView.Adapter<CollectorViewHolder>() {
@@ -36,11 +35,6 @@ class CollectorAdapter(private var collectors: List<Collector>) :
     fun updateCollectors(newCollectors: List<Collector>) {
         collectors = newCollectors
         notifyDataSetChanged()
-    }
-
-    // A function to bind the onClickListener.
-    fun setOnClickListener(onClickListener: OnClickListener) {
-        this.onClickListener = onClickListener
     }
 
     // onClickListener Interface

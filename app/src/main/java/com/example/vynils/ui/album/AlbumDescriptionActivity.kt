@@ -2,9 +2,7 @@ package com.example.vynils.ui.album
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,21 +11,20 @@ import com.example.vynils.R
 import com.example.vynils.model.Album
 
 class AlbumDescriptionActivity : AppCompatActivity() {
-    private val viewModel: AlbumViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description_album)
 
-        var albumList : Album = intent.getParcelableExtra(AlbumActivity.NEXT_SCREEN)!!
+        val albumList : Album = intent.getParcelableExtra(AlbumActivity.NEXT_SCREEN)!!
 
         val toolbar: Toolbar = findViewById(R.id.album_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = albumList.name.toString()
 
-        var recyclerView: RecyclerView = findViewById(R.id.album_details)
-        var adapter = AlbumDescriptionAdapter(albumList)
+        val recyclerView: RecyclerView = findViewById(R.id.album_details)
+        val adapter = AlbumDescriptionAdapter(albumList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
