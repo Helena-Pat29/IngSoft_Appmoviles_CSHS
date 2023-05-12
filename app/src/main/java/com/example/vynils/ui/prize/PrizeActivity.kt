@@ -1,9 +1,14 @@
 package com.example.vynils.ui.prize
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
+import com.example.vynils.MainActivity
 import com.example.vynils.R
 import org.json.JSONObject
 
@@ -14,11 +19,20 @@ class PrizeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prize)
 
+        val toolbar: Toolbar = findViewById(R.id.album_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Crear Premio"
+
         val postButton: Button = findViewById(R.id.post_prize_button)
         postButton.setOnClickListener {
-            val name = "Premio de prueba"
-            val description = "Descripcion del premio de prueba"
-            val organization = "Organizacion con todo animo de lucro"
+            val namefield : EditText = findViewById(R.id.post_prize_name)
+            val name = namefield.text.toString()
+            val descriptionfield : EditText = findViewById(R.id.post_prize_description)
+            val description =descriptionfield.text.toString()
+            val organizationfield : EditText = findViewById(R.id.post_prize_organization)
+            val organization =organizationfield.text.toString()
+
             val postParams = mapOf<String, Any>(
                 "name" to name,
                 "description" to description,
@@ -27,7 +41,15 @@ class PrizeActivity : AppCompatActivity() {
 
             viewModel.postPrize(JSONObject(postParams))
 
+            val intent= Intent(this,MainActivity::class.java)
+            startActivity(intent)
 
+        }
+
+        val cancelButton: Button =findViewById(R.id.post_prize_button_cancel)
+        cancelButton.setOnClickListener{
+            val intent= Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }
