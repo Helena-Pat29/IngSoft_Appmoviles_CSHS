@@ -1,26 +1,14 @@
 package com.example.vynils.ui.album
 
-import android.content.Intent
-import android.icu.text.SimpleDateFormat
-import android.os.Build
-import android.text.format.Time
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.app.AppCompatActivity
 import com.example.vynils.R
 import com.example.vynils.model.Album
-import com.squareup.picasso.Picasso
 import com.bumptech.glide.Glide
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.util.Date
-import java.util.Calendar
 
 
 class AlbumAdapter(private var albums: List<Album>) :
@@ -50,15 +38,6 @@ class AlbumAdapter(private var albums: List<Album>) :
                 onClickListener!!.onClick(position, album )
             }
         }
-    }
-
-    fun addDuration(album: Album): String {
-        val totalDuration = "00:00:00"
-        //val ldt = LocalTime.parse(totalDuration)
-        //for (track in album.track ){
-            //val ldt1 = LocalTime.parse(track.duration)
-        //}
-        return "0"
     }
 
     override fun getItemCount(): Int = albums.size

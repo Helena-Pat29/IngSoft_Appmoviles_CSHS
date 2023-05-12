@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.vynils.model.Prize
 import com.example.vynils.repository.PrizeRepository
 import kotlinx.coroutines.launch
 import org.json.JSONObject
