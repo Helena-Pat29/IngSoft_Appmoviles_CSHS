@@ -28,6 +28,12 @@ class LayoutTest {
     }
 
     @Test
+    fun checkCollectorNameDisplayed() {
+        launchTestActivityWithLayout(R.layout.collector_item)
+        onView(withId(R.id.collector_name))
+            .check(matches(withText("Collector Name")))
+    }
+    @Test
     fun checkArtistNameDisplayed() {
         launchTestActivityWithLayout(R.layout.artist_description_recycler)
         onView(withId(R.id.artist_name))
