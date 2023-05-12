@@ -26,6 +26,12 @@ class LayoutTest {
         onView(withId(R.id.album_name))
             .check(matches(withText("Album Name")))
     }
+    @Test
+    fun checkCollectorNameDisplayed() {
+        launchTestActivityWithLayout(R.layout.collector_item)
+        onView(withId(R.id.collector_name))
+            .check(matches(withText("Collector Name")))
+    }
 
     @Test
     fun checkArtistNameDisplayed() {
