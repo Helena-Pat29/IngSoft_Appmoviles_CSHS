@@ -1,7 +1,5 @@
 package com.example.vynils.DTO
 import android.os.Parcelable
-import com.example.vynils.genre.Genre
-import com.example.vynils.recordlabel.RecordLabel
 import kotlinx.parcelize.Parcelize
 
 data class ResponseArtistDTO(
@@ -19,9 +17,7 @@ data class AlbumArtistDTO(
     val name: String,
     val cover: String,
     val releaseDate: String,
-    val description: String,
-   // val genre: Genre,
-   // val recordLabel: RecordLabel
+    val description: String
 ) : Parcelable
 
 @Parcelize

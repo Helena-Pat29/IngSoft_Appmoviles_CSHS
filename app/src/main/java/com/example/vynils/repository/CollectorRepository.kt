@@ -2,13 +2,9 @@ package com.example.vynils.repository
 
 import android.content.Context
 import android.util.Log
-import com.example.vynils.DTO.AlbumArtistDTO
-import com.example.vynils.DTO.ResponseArtistDTO
 import com.example.vynils.DTO.ResponseCollectorDTO
-import com.example.vynils.model.Album
 import com.example.vynils.model.Collector
 import com.example.vynils.model.Comment
-import com.example.vynils.model.Artist
 import com.example.vynils.model.CollectorAlbum
 import com.example.vynils.model.Performer
 import com.example.vynils.network.NetworkServiceAdapter
@@ -21,7 +17,7 @@ import java.lang.reflect.Type
 class CollectorRepository {
     private val gson = Gson()
 
-    fun responseCollectorToCollector(responseCollector: ResponseCollectorDTO): Collector {
+    private fun responseCollectorToCollector(responseCollector: ResponseCollectorDTO): Collector {
         return Collector(
             id = responseCollector.id,
             name = responseCollector.name,
