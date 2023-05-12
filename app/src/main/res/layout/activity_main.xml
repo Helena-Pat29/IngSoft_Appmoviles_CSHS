@@ -20,7 +20,6 @@
             android:text="@string/fetch_albums_label" />
 
         <View
-            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
@@ -33,7 +32,6 @@
             android:text="@string/fetch_artist_label" />
 
         <View
-            android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
@@ -46,7 +44,6 @@
             android:text="@string/fetch_collector_label" />
 
         <View
-            android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
@@ -59,7 +56,6 @@
             android:text="Crear Premio" />
 
         <View
-            android:id="@+id/divider4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />

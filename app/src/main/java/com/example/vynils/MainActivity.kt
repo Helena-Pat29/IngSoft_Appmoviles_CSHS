@@ -3,13 +3,10 @@ package com.example.vynils
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
-import com.example.vynils.DTO.ResponseCollectorDTO
-import com.example.vynils.repository.CollectorRepository
 import com.example.vynils.ui.album.AlbumActivity
 import com.example.vynils.ui.artist.ArtistActivity
 import com.example.vynils.ui.collector.CollectorActivity
@@ -36,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         getArtistButton.setOnClickListener {
             val artistList = Intent(this, ArtistActivity::class.java)
             startActivity(artistList)
-
         }
 
         getCollectorsButton.setOnClickListener {

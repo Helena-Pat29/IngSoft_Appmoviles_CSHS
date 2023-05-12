@@ -1,11 +1,9 @@
 package com.example.vynils.repository
 
 import java.lang.reflect.Type
-import com.example.vynils.brokers.ApiService
 import com.example.vynils.DTO.ResponseAlbumDTO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.android.volley.Response
 import android.content.Context
 import com.example.vynils.DTO.PerformerDTO
 import com.example.vynils.genre.Genre
@@ -14,10 +12,7 @@ import com.example.vynils.model.Performer
 import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.recordlabel.RecordLabel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
 
 class AlbumRepository {
     private val gson = Gson()
