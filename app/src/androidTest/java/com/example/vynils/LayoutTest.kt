@@ -33,6 +33,7 @@ class LayoutTest {
         onView(withId(R.id.collector_name))
             .check(matches(withText("Collector Name")))
     }
+
     @Test
     fun checkArtistNameDisplayed() {
         launchTestActivityWithLayout(R.layout.artist_description_recycler)
@@ -68,10 +69,16 @@ class LayoutTest {
             .check(matches(isDisplayed()))
     }
 
+    @Test
+    fun createPrizeIsDisplayed() {
+        launchTestActivityWithLayout(R.layout.activity_prize)
+        onView(withId(R.id.post_prize_name))
+            .check(matches(isDisplayed()))
+    }
+
     private fun launchTestActivityWithLayout(layoutResId: Int) {
         val intent = Intent(ApplicationProvider.getApplicationContext(), TestActivity::class.java)
         intent.putExtra("layoutResId", layoutResId)
         ActivityScenario.launch<TestActivity>(intent)
     }
-
 }
