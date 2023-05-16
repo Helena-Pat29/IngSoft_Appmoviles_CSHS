@@ -1,5 +1,6 @@
 package com.example.vynils.ui.collector
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vynils.R
+import com.example.vynils.model.Collector
 
 class CollectorActivity : AppCompatActivity() {
     private val viewModel: CollectorViewModel by viewModels()
@@ -33,6 +35,19 @@ class CollectorActivity : AppCompatActivity() {
             Log.d("CollectorActivity", "Collectors updated: $collectors")
             adapter.updateCollectors(collectors)
         }
+
+        adapter.setOnClickListener(object:
+            CollectorAdapter.OnClickListener {
+            override fun onClick(position: Int, model: Collector){
+                val intent = Intent(this@CollectorActivity, CollectorDescriptionActivity::class.java)
+                intent.putExtra(CollectorActivity.NEXT_SCREEN, model)
+                startActivity(intent)
+            }
+        })
+    }
+
+    companion object{
+        val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
