@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Collector
+import com.example.vynils.ui.album.AlbumAdapter
 
 class CollectorAdapter(private var collectors: List<Collector>) :
     RecyclerView.Adapter<CollectorViewHolder>() {
-
     private var onClickListener: OnClickListener? = null
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectorViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.collector_item, parent, false)
@@ -22,9 +21,12 @@ class CollectorAdapter(private var collectors: List<Collector>) :
     }
 
     override fun onBindViewHolder(holder: CollectorViewHolder, position: Int) {
+        val collector = collectors[position]
         holder.bind(collectors[position])
         holder.itemView.setOnClickListener {
-            onClickListener?.onClick(position, collectors[position])
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, collector )
+            }
         }
     }
 
@@ -35,6 +37,11 @@ class CollectorAdapter(private var collectors: List<Collector>) :
     fun updateCollectors(newCollectors: List<Collector>) {
         collectors = newCollectors
         notifyDataSetChanged()
+    }
+
+    // A function to bind the onclickListener.
+    fun setOnClickListener(onClickListener: CollectorAdapter.OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
     // onClickListener Interface
