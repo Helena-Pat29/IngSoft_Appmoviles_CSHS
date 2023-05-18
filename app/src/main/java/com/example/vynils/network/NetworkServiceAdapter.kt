@@ -5,7 +5,10 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.vynils.DTO.CreateAlbumDTO
+import com.example.vynils.DTO.ResponseAlbumDTO
 import com.example.vynils.brokers.ApiService
+import com.google.gson.Gson
 import kotlinx.coroutines.suspendCancellableCoroutine
 import org.json.JSONObject
 import kotlin.coroutines.resume
@@ -93,5 +96,21 @@ class NetworkServiceAdapter (private val context: Context) {
             request.cancel()
         }
     }
+
+    suspend fun createAlbum(albumDTO: CreateAlbumDTO): String = suspendCancellableCoroutine { continuation ->
+        val jsonRequest = JSONObject(Gson().toJson(albumDTO))
+        val request = ApiService.postRequest("albums", jsonRequest,
+            { response ->
+                continuation.resume(response.toString())
+            },
+            { error -> continuation.resumeWithException(Exception(error)) }
+        )
+        apiService.add(request)
+
+        continuation.invokeOnCancellation {
+            request.cancel()
+        }
+    }
+
 
 }
