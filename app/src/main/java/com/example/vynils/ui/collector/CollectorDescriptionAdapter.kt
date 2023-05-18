@@ -17,17 +17,11 @@ class CollectorDescriptionAdapter(private var collectors: Collector) :
         val collectorTel: TextView = itemView.findViewById(R.id.collector_telephone)
         val collectorEmail: TextView = itemView.findViewById(R.id.collector_email)
 
-        var commentId: TextView = itemView.findViewById(R.id.comment_id)
         var commentDesc: TextView = itemView.findViewById(R.id.comment_description)
-        var commentRating: TextView = itemView.findViewById(R.id.comment_rating)
 
-        val performerId: TextView = itemView.findViewById(R.id.performer_id)
         val performerName: TextView = itemView.findViewById(R.id.performer_name)
         val performerImage: ImageView = itemView.findViewById(R.id.performer_image)
 
-        val collectorAlbumId: TextView = itemView.findViewById(R.id.collector_album_id)
-        val collectorAlbumPrice: TextView = itemView.findViewById(R.id.collector_album_price)
-        val collectorAlbumStatus: TextView = itemView.findViewById(R.id.collector_album_status)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectorViewHolder {
@@ -50,13 +44,10 @@ class CollectorDescriptionAdapter(private var collectors: Collector) :
         }
 
         if(collector.comments.isNotEmpty() && position <= collector.comments.size) {
-            holder.commentId.text = collector.comments[position].id.toString()
             holder.commentDesc.text = collector.comments[position].description
-            holder.commentRating.text = collector.comments[position].rating.toString()
         }
 
         if(collector.favoritePerformers.isNotEmpty() && position <= collector.favoritePerformers.size) {
-            holder.performerId.text = collector.favoritePerformers[position].id.toString()
             holder.performerName.text = collector.favoritePerformers[position].name
             Glide.with(holder.itemView.context)
                 .load(collector.favoritePerformers[position].image)
@@ -65,9 +56,6 @@ class CollectorDescriptionAdapter(private var collectors: Collector) :
         }
 
         if(collector.collectorAlbums.isNotEmpty() && position <= collector.collectorAlbums.size) {
-            holder.collectorAlbumId.text = collector.collectorAlbums[position].id.toString()
-            holder.collectorAlbumPrice.text = collector.collectorAlbums[position].price.toString()
-            holder.collectorAlbumStatus.text = collector.collectorAlbums[position].status
         }
     }
 
