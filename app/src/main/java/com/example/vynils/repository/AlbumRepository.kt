@@ -5,6 +5,7 @@ import com.example.vynils.DTO.ResponseAlbumDTO
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import android.content.Context
+import com.example.vynils.DTO.CreateAlbumDTO
 import com.example.vynils.DTO.PerformerDTO
 import com.example.vynils.genre.Genre
 import com.example.vynils.model.Album
@@ -48,5 +49,13 @@ class AlbumRepository {
         val albumListType: Type = object : TypeToken<List<ResponseAlbumDTO>>() {}.type
         val responseAlbums: List<ResponseAlbumDTO> = gson.fromJson(responseListener, albumListType)
         responseAlbums.map { responseAlbumToAlbum(it) }
+    }
+
+    suspend fun createAlbum(context: Context, album: CreateAlbumDTO): Album = withContext(Dispatchers.IO) {
+        val apiService = NetworkServiceAdapter(context)
+        val responseString = apiService.createAlbum(album)
+
+        val responseAlbum: ResponseAlbumDTO = gson.fromJson(responseString, ResponseAlbumDTO::class.java)
+        responseAlbumToAlbum(responseAlbum)
     }
 }
