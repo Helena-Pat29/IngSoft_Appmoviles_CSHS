@@ -13,7 +13,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/artistImageDescription"/>
 
     <TextView
         android:id="@+id/artist_name"
@@ -24,7 +25,7 @@
         app:layout_constraintEnd_toStartOf="@+id/artist_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/artist_image"
-        android:text="Artist Name" />
+        android:text="@string/ArtistName" />
 
     <TextView
         android:id="@+id/artist_description"
