@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/name_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/cover_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cover" />
+
+    <EditText
+        android:id="@+id/release_date_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Release Date" />
+
+    <EditText
+        android:id="@+id/description_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description" />
+
+    <EditText
+        android:id="@+id/genre_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Genre" />
+
+    <EditText
+        android:id="@+id/record_label_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Record Label" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+</LinearLayout>
