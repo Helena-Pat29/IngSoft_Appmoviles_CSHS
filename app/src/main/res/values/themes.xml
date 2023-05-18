@@ -13,7 +13,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.Vynils" parent="Base.Theme.Vynils" />
     <!-- Base application theme. -->
     <style name="Base.Theme.AppCompat.Light.DarkActionBar" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -21,4 +20,7 @@
     </style>
 
     <style name="Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar" />
+    <style name="ToolbarColoredBackArrow">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
 </resources>

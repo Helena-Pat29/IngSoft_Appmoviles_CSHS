@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.collector.CollectorActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/collector_toolbar"
@@ -11,12 +13,16 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        app:titleTextColor="@android:color/white" />
+        android:minHeight="48dp"
+        android:textSize="20sp"
+        app:theme="@style/ToolbarColoredBackArrow"
+        app:titleTextAppearance="@style/TextAppearance.Vynils.Toolbar.Title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/collector_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

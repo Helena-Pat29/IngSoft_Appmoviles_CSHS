@@ -7,8 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.collector.CollectorDescriptionActivity">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,26 +16,25 @@
         android:paddingRight="40dp"
         tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:context=".MainActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/collector_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textSize="25dp"
-            android:layout_marginBottom="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Collector Name" />
-
-    </LinearLayout>
+            <TextView
+                android:id="@+id/collector_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Collector Name" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,7 +103,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Comments" />
 
-
         <TextView
             android:id="@+id/comment_description"
             android:layout_width="wrap_content"
@@ -127,35 +123,34 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Favorite Performers" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:gravity="left">
-
-        <TextView
-            android:id="@+id/performer_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            tools:text="Performer Name" />
-        <ImageView
-            android:id="@+id/performer_image"
-            android:layout_width="149dp"
-            android:layout_height="141dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="20dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="true"
-            android:scaleType="centerInside"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:src="@tools:sample/avatars" />
-    </LinearLayout>
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/performer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                tools:text="Performer Name" />
 
+            <ImageView
+                android:id="@+id/performer_image"
+                android:layout_width="149dp"
+                android:layout_height="141dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="4dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:src="@tools:sample/avatars" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
