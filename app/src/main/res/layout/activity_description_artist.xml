@@ -12,6 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarColoredBackArrow"
+        android:textSize="20sp"
+        android:minHeight="48dp"
         android:elevation="0dp"
         app:titleTextAppearance="@style/TextAppearance.Vynils.Toolbar.Title" />
 

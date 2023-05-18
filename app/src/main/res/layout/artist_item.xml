@@ -21,7 +21,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vertical_center"
         app:layout_constraintBottom_toBottomOf="@+id/vertical_center"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/artistItemDescription"/>
 
     <TextView
         android:id="@+id/artist_name"

@@ -97,7 +97,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/performer_name"
         app:layout_constraintTop_toBottomOf="@+id/comment_rating"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/collectorImageDescription"/>
 
     <TextView
         android:id="@+id/collector_album_id"

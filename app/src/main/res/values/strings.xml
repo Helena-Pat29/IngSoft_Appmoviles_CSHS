@@ -4,6 +4,23 @@
     <string name="fetch_artist_label">Listar Artistas</string>
     <string name="fetch_collector_label">Listar Coleccionistas</string>
     <string name="home">Home</string>
+    <string name="nombretv">Nombre</string>
+    <string name="nombreet">Nombre del premio</string>
+    <string name="organizaciontv">Organizacion</string>
+    <string name="organizacionet">Organizacion del premio</string>
+    <string name="descripciontv">Descripcion</string>
+    <string name="descripcionet">Descripcion del premio</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Crear premio</string>
+    <string name="albumImageDescription">Imagen del album</string>
+    <string name="albumItemDescription">Imagen del item del album</string>
+    <string name="artistImageDescription">Imagen del artista</string>
+    <string name="artistItemDescription">Imagen del item del artista</string>
+    <string name="collectorImageDescription">Imagen del collector</string>
+    <string name="collectorItemDescription">Imagen del item del collector</string>
+    <string name="albumname">Album Name</string>
+    <string name="ArtistName">Artist Name</string>
+    <string name="CollectorName">Collector Name</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>
