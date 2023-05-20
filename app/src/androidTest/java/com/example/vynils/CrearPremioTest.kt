@@ -46,13 +46,13 @@ class CrearPremioTest {
         onView(
             Matchers.allOf(
                 ViewMatchers.withId(R.id.post_prize_button_cancel),
-                ViewMatchers.hasDescendant(ViewMatchers.withText("Descripcion"))
+                ViewMatchers.hasDescendant(ViewMatchers.withText("Cancel"))
             )
         )
         onView(
             Matchers.allOf(
                 ViewMatchers.withId(R.id.post_prize_button),
-                ViewMatchers.hasDescendant(ViewMatchers.withText("Descripcion"))
+                ViewMatchers.hasDescendant(ViewMatchers.withText("Crear premio"))
             )
         )
     }

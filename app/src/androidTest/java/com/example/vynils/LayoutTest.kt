@@ -76,6 +76,13 @@ class LayoutTest {
             .check(matches(isDisplayed()))
     }
 
+    @Test
+    fun createAlbumIsDisplayed() {
+        launchTestActivityWithLayout(R.layout.activity_create_album)
+        onView(withId(R.id.name_field))
+            .check(matches(isDisplayed()))
+    }
+
     private fun launchTestActivityWithLayout(layoutResId: Int) {
         val intent = Intent(ApplicationProvider.getApplicationContext(), TestActivity::class.java)
         intent.putExtra("layoutResId", layoutResId)
