@@ -1,11 +1,11 @@
 package com.example.vynils.ui.prize
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.vynils.MainActivity
 import com.example.vynils.R
@@ -18,7 +18,7 @@ class PrizeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prize)
 
-        val toolbar: Toolbar = findViewById(R.id.album_toolbar)
+        val toolbar: Toolbar = findViewById(R.id.prize_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Crear Premio"
@@ -52,4 +52,9 @@ class PrizeActivity : AppCompatActivity() {
         }
 
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }
