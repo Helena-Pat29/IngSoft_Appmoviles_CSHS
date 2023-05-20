@@ -16,8 +16,8 @@
     <string name="albumItemDescription">Imagen del item del album</string>
     <string name="artistImageDescription">Imagen del artista</string>
     <string name="artistItemDescription">Imagen del item del artista</string>
-    <string name="collectorImageDescription">Imagen del collector</string>
     <string name="collectorItemDescription">Imagen del item del collector</string>
+    <string name="AlbumImageDescription">Imagen de la lista del album</string>
     <string name="albumname">Album Name</string>
     <string name="ArtistName">Artist Name</string>
     <string name="CollectorName">Collector Name</string>
@@ -28,6 +28,10 @@
     <string name="cover">Cover</string>
     <string name="description">Description</string>
     <string name="crear_album">Crear Album</string>
-    <!-- Strings used for fragments for navigation -->
-
+    <string name="email">Email</string>
+    <string name="telephone">Telephone</string>
+    <string name="comments">Comments</string>
+    <string name="favoriteperformers">Favorite Performers</string>
+    <string name="crearalbum">Crear Album</string>
+    <string name="spinner">Spinner</string>
 </resources>
