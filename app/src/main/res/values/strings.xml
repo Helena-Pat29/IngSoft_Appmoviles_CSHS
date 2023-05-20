@@ -21,6 +21,13 @@
     <string name="albumname">Album Name</string>
     <string name="ArtistName">Artist Name</string>
     <string name="CollectorName">Collector Name</string>
+    <string name="genre">Genre</string>
+    <string name="record">Record Label</string>
+    <string name="release_date">Release Date</string>
+    <string name="name">Name</string>
+    <string name="cover">Cover</string>
+    <string name="description">Description</string>
+    <string name="crear_album">Crear Album</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>
