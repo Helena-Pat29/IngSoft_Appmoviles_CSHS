@@ -19,7 +19,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.prize.PrizeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Vynils.NoActionBar"/>
         <activity
             android:name=".ui.album.AlbumDescriptionActivity"
             android:exported="false"
