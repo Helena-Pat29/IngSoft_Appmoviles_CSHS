@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".ui.prize.PrizeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/prize_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarColoredBackArrow"
+        android:textSize="20sp"
+        android:minHeight="48dp"
+        android:elevation="4dp"
+        app:titleTextAppearance="@style/TextAppearance.Vynils.Toolbar.Title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="40dp"
+            android:paddingTop="40dp"
+            android:paddingRight="40dp"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/nombretv" />
+
+            <EditText
+                android:id="@+id/post_prize_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nombreet"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="@color/black"
+                android:autofillHints="name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/organizaciontv" />
+
+            <EditText
+                android:id="@+id/post_prize_organization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/organizacionet"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="@color/black"
+                android:autofillHints="org" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/descripciontv" />
+
+            <EditText
+                android:id="@+id/post_prize_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="top|start"
+                android:hint="@string/descripcionet"
+                android:inputType="textMultiLine"
+                android:maxLines="15"
+                android:minLines="10"
+                android:textColorHint="@color/black"
+                android:autofillHints="descr" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/post_prize_button_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/post_prize_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/create"
+                    tools:ignore="ButtonStyle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:background="?android:attr/listDivider" />
+
+    </LinearLayout>
