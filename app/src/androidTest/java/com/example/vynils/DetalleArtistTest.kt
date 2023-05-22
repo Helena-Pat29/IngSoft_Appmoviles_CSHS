@@ -38,6 +38,8 @@ class DetalleArtistTest {
         )
             .perform(ViewActions.click())
 
+        Thread.sleep(5000)
+
         Espresso.onView(
             Matchers.allOf(
                 ViewMatchers.withId(R.id.artist_details),
