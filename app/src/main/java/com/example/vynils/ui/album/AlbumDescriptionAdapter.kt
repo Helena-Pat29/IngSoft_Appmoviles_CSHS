@@ -3,15 +3,12 @@ package com.example.vynils.ui.album
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Album
-import org.w3c.dom.Text
 
 class AlbumDescriptionAdapter(private var albums: Album) :
     RecyclerView.Adapter<AlbumDescriptionAdapter.AlbumViewHolder>() {
@@ -25,7 +22,6 @@ class AlbumDescriptionAdapter(private var albums: Album) :
         var albumTrackDuration: TextView = itemView.findViewById(R.id.track_duration)
 
         val albumYear: TextView = itemView.findViewById(R.id.album_year)
-        //val albumDuration: TextView = itemView.findViewById(R.id.track_duration)
         val performerName: TextView = itemView.findViewById(R.id.performer_name)
     }
 
@@ -42,35 +38,25 @@ class AlbumDescriptionAdapter(private var albums: Album) :
             holder.albumDescription.text = album.description
             holder.performerName.text = album.mainPerformer.name
             holder.albumYear.text = album.releaseDate.substring(0,4)
-            //holder.albumDuration.text = album.track[1].duration
             Glide.with(holder.itemView.context)
                 .load(album.cover)
                 .centerCrop()
                 .into(holder.albumCover)
         }
         else {
-            holder.albumCover.setVisibility(View.GONE)
-            holder.albumName.setVisibility(View.GONE)
-            holder.albumDescription.setVisibility(View.GONE)
-            holder.performerName.setVisibility(View.GONE)
-            holder.albumYear.setVisibility(View.GONE)
+            holder.albumCover.visibility = View.GONE
+            holder.albumName.visibility = View.GONE
+            holder.albumDescription.visibility = View.GONE
+            holder.performerName.visibility = View.GONE
+            holder.albumYear.visibility = View.GONE
         }
 
-        if(album.track.size != 0) {
+        if(album.track.isNotEmpty()) {
             holder.albumTrackId.text = album.track[position].id.toString()
             holder.albumTrackName.text = album.track[position].name
             holder.albumTrackDuration.text = album.track[position].duration
         }
 
-    }
-
-    fun addDuration(album: Album): String {
-        val totalDuration = "00:00:00"
-        //val ldt = LocalTime.parse(totalDuration)
-        //for (track in album.track ){
-        //val ldt1 = LocalTime.parse(track.duration)
-        //}
-        return "0"
     }
 
     override fun getItemCount(): Int {
@@ -80,8 +66,4 @@ class AlbumDescriptionAdapter(private var albums: Album) :
         return  albums.track.size
     }
 
-    fun updateAlbums(newAlbums: Album) {
-        albums = newAlbums
-        notifyDataSetChanged()
-    }
 }

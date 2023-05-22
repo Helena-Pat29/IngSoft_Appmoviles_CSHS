@@ -8,5 +8,5 @@ data class Performer(
     val name: String,
     val image: String?,
     val description: String?,
-    val birthDate: String?
+    val date: String? = null
 ) : Parcelable
