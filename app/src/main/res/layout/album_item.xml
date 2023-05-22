@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.05"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/albumItemDescription"/>
 
     <TextView
         android:id="@+id/album_name"
@@ -25,7 +26,7 @@
         app:layout_constraintEnd_toStartOf="@+id/album_cover"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Album Name" />
+        android:text="@string/albumname" />
 
     <TextView
         android:id="@+id/album_description"
@@ -48,7 +49,6 @@
         tools:text="Performer Name" />
 
     <View
-        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"

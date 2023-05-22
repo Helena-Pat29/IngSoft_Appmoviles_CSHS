@@ -1,7 +1,6 @@
 package com.example.vynils.ui.album
 
 import android.content.Intent
-import com.example.vynils.ui.album.AlbumViewModel
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,10 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import com.example.vynils.R
 import android.util.Log
-import android.widget.Button
-import com.example.vynils.MainActivity
 import com.example.vynils.model.Album
-import com.example.vynils.ui.artist.ArtistActivity
 
 class AlbumActivity : AppCompatActivity() {
     private val viewModel: AlbumViewModel by viewModels()
