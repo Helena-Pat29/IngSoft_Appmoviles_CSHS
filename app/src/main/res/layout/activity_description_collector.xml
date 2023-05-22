@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.collector.CollectorDescriptionActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/album_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarColoredBackArrow"
+        android:textSize="20sp"
+        android:minHeight="48dp"
+        android:elevation="4dp"
+        app:titleTextAppearance="@style/TextAppearance.Vynils.Toolbar.Title"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/collector_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/collector_description_recycler"
+        tools:visibility="visible" />
+
+</LinearLayout>

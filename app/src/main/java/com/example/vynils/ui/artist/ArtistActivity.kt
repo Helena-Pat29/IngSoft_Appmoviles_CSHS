@@ -16,6 +16,7 @@ import com.example.vynils.model.Artist
 import com.example.vynils.ui.album.AlbumAdapter
 import com.example.vynils.ui.artist.ArtistActivity
 
+
 class ArtistActivity : AppCompatActivity() {
     private val viewModel: ArtistViewModel by viewModels()
 
