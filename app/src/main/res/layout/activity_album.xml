@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/album_item" />
+        tools:listitem="@layout/album_item"
+        android:contentDescription="@string/albumImageDescription"/>
 
 </LinearLayout>
