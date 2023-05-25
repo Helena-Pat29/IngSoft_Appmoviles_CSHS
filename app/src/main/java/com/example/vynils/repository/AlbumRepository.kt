@@ -27,7 +27,7 @@ class AlbumRepository {
             releaseDate = responseAlbum.releaseDate,
             description = responseAlbum.description,
             genre = Genre.valueOf(responseAlbum.genre.uppercase()),
-            recordLabel = RecordLabel.valueOf(responseAlbum.recordLabel.uppercase()),
+            recordLabel = RecordLabel.valueOf(firstwordrecordlabel(responseAlbum.recordLabel.uppercase())),
             track = responseAlbum.tracks,
             mainPerformer = Performer(
                 id = mainPerformerDTO.id,
@@ -37,6 +37,15 @@ class AlbumRepository {
                 date = mainPerformerDTO.birthDate
             )
         )
+    }
+
+    private fun firstwordrecordlabel(recordlabel: String): String {
+        var index = 0
+        if(recordlabel.contains(" ")) {
+            index = recordlabel.indexOf(" ")
+            return recordlabel.substring(0, index)
+        }
+        return recordlabel
     }
 
     suspend fun fetchAlbums(
