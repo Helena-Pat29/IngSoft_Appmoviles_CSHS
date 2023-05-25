@@ -1,4 +1,4 @@
-package com.example.vynils.DTO
+package com.example.vynils.dto
 
 data class ResponseCollectorDTO(
     val id: Int,

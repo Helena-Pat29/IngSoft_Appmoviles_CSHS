@@ -1,5 +1,6 @@
 package com.example.vynils.ui.artist
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -9,12 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vynils.R
-import android.content.Intent
-import android.widget.Button
-import com.example.vynils.model.Album
 import com.example.vynils.model.Artist
-import com.example.vynils.ui.album.AlbumAdapter
-import com.example.vynils.ui.artist.ArtistActivity
 
 
 class ArtistActivity : AppCompatActivity() {
@@ -52,7 +48,7 @@ class ArtistActivity : AppCompatActivity() {
 
     }
     companion object{
-        val NEXT_SCREEN="details_screen"
+        const val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

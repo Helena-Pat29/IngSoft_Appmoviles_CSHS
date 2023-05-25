@@ -2,10 +2,9 @@ package com.example.vynils.ui.album
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.vynils.DTO.CreateAlbumDTO
+import com.example.vynils.dto.CreateAlbumDTO
 import com.example.vynils.model.Album
 import com.example.vynils.repository.AlbumRepository
 import kotlinx.coroutines.launch
@@ -14,10 +13,8 @@ class CreateAlbumViewModel(application: Application) : AndroidViewModel(applicat
     private val albumRepository = AlbumRepository()
 
     private val _createAlbumResult = MutableLiveData<Album>()
-    val createAlbumResult: LiveData<Album> = _createAlbumResult
 
     private val _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
 
     fun createAlbum(album: CreateAlbumDTO) {
         viewModelScope.launch {

@@ -1,5 +1,6 @@
 package com.example.vynils.ui.collector
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Collector
-import com.example.vynils.ui.album.AlbumAdapter
 
 class CollectorAdapter(private var collectors: List<Collector>) :
     RecyclerView.Adapter<CollectorViewHolder>() {
@@ -34,13 +34,14 @@ class CollectorAdapter(private var collectors: List<Collector>) :
         return collectors.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateCollectors(newCollectors: List<Collector>) {
         collectors = newCollectors
         notifyDataSetChanged()
     }
 
     // A function to bind the onclickListener.
-    fun setOnClickListener(onClickListener: CollectorAdapter.OnClickListener) {
+    fun setOnClickListener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
     }
 
