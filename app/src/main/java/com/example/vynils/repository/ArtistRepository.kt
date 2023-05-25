@@ -2,7 +2,7 @@ package com.example.vynils.repository
 
 import android.content.Context
 import com.example.vynils.network.NetworkServiceAdapter
-import com.example.vynils.DTO.ResponseArtistDTO
+import com.example.vynils.dto.ResponseArtistDTO
 import com.example.vynils.model.Artist
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

@@ -1,6 +1,6 @@
 package com.example.vynils.model
 import android.os.Parcelable
-import com.example.vynils.DTO.TrackDTO
+import com.example.vynils.dto.TrackDTO
 import com.example.vynils.genre.Genre
 import com.example.vynils.recordlabel.RecordLabel
 import kotlinx.parcelize.Parcelize

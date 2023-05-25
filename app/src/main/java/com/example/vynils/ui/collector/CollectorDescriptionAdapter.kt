@@ -54,9 +54,6 @@ class CollectorDescriptionAdapter(private var collectors: Collector) :
                 .centerCrop()
                 .into(holder.performerImage)
         }
-
-        if(collector.collectorAlbums.isNotEmpty() && position <= collector.collectorAlbums.size) {
-        }
     }
 
     override fun getItemCount(): Int {
@@ -65,10 +62,10 @@ class CollectorDescriptionAdapter(private var collectors: Collector) :
             collectors.collectorAlbums.isEmpty()) {
             return 1
         }
-        when {
-            collectors.favoritePerformers.size >= collectors.comments.size && collectors.favoritePerformers.size >= collectors.collectorAlbums.size -> return collectors.favoritePerformers.size
-            collectors.comments.size >= collectors.favoritePerformers.size && collectors.comments.size >= collectors.collectorAlbums.size -> return collectors.comments.size
-            else -> return collectors.collectorAlbums.size
+        return when {
+            collectors.favoritePerformers.size >= collectors.comments.size && collectors.favoritePerformers.size >= collectors.collectorAlbums.size -> collectors.favoritePerformers.size
+            collectors.comments.size >= collectors.favoritePerformers.size && collectors.comments.size >= collectors.collectorAlbums.size -> collectors.comments.size
+            else -> collectors.collectorAlbums.size
         }
     }
 }

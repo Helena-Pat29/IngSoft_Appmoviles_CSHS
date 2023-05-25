@@ -1,9 +1,8 @@
 package com.example.vynils.ui.album
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +20,7 @@ class AlbumDescriptionActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.album_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = albumList.name.toString()
+        supportActionBar?.title = albumList.name
 
         val recyclerView: RecyclerView = findViewById(R.id.album_details)
         val adapter = AlbumDescriptionAdapter(albumList)

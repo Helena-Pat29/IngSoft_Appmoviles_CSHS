@@ -2,7 +2,7 @@ package com.example.vynils.repository
 
 import android.content.Context
 import android.util.Log
-import com.example.vynils.DTO.ResponseCollectorDTO
+import com.example.vynils.dto.ResponseCollectorDTO
 import com.example.vynils.model.Collector
 import com.example.vynils.model.Comment
 import com.example.vynils.model.CollectorAlbum

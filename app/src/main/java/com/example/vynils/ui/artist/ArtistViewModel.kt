@@ -17,8 +17,6 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
         get() = _artists
 
     private val _error = MutableLiveData<Throwable>()
-    val error: LiveData<Throwable>
-        get() = _error
 
     init {
         fetchArtists()

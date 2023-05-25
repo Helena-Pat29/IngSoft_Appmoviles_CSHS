@@ -1,19 +1,19 @@
 package com.example.vynils.repository
 
-import java.lang.reflect.Type
-import com.example.vynils.DTO.ResponseAlbumDTO
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import android.content.Context
-import com.example.vynils.DTO.CreateAlbumDTO
-import com.example.vynils.DTO.PerformerDTO
+import com.example.vynils.dto.CreateAlbumDTO
+import com.example.vynils.dto.PerformerDTO
+import com.example.vynils.dto.ResponseAlbumDTO
 import com.example.vynils.genre.Genre
 import com.example.vynils.model.Album
 import com.example.vynils.model.Performer
 import com.example.vynils.network.NetworkServiceAdapter
 import com.example.vynils.recordlabel.RecordLabel
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.lang.reflect.Type
 
 class AlbumRepository {
     private val gson = Gson()
