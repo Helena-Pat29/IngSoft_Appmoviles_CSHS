@@ -18,8 +18,6 @@ class CollectorViewModel(application: Application) : AndroidViewModel(applicatio
         get() = _collectors
 
     private val _error = MutableLiveData<Throwable>()
-    val error: LiveData<Throwable>
-        get() = _error
 
     init {
         fetchCollectors()

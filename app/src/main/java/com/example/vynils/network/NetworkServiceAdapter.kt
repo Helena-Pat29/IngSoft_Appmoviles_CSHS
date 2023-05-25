@@ -1,12 +1,7 @@
 package com.example.vynils.network
 import android.content.Context
 import android.util.Log
-import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.example.vynils.DTO.CreateAlbumDTO
-import com.example.vynils.DTO.ResponseAlbumDTO
+import com.example.vynils.dto.CreateAlbumDTO
 import com.example.vynils.brokers.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -14,7 +9,7 @@ import org.json.JSONObject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-class NetworkServiceAdapter (private val context: Context) {
+class NetworkServiceAdapter (context: Context) {
     private val apiService = ApiService.getInstance(context)
 
     suspend fun fetchAlbums(): String = suspendCancellableCoroutine { continuation ->

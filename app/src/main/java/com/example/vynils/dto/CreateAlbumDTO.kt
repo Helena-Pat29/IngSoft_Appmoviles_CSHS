@@ -1,4 +1,4 @@
-package com.example.vynils.DTO
+package com.example.vynils.dto
 
 import org.json.JSONObject
 

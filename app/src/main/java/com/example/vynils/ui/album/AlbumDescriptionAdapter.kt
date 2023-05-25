@@ -60,7 +60,7 @@ class AlbumDescriptionAdapter(private var albums: Album) :
     }
 
     override fun getItemCount(): Int {
-        if (albums.track.size == 0) {
+        if (albums.track.isEmpty()) {
             return 1
         }
         return  albums.track.size
