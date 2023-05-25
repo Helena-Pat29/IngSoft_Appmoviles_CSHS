@@ -77,11 +77,6 @@ class ArtistDescriptionAdapter(private var artist: Artist) :
         }
     }
 
-    fun updateArtists(newArtist: Artist) {
-        artist = newArtist
-        notifyDataSetChanged()
-    }
-
     private fun formatDate(birthDate: String): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
         val outputFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())

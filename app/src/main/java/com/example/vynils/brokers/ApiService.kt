@@ -1,5 +1,6 @@
 package com.example.vynils.brokers
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import com.android.volley.Request
@@ -17,6 +18,7 @@ class ApiService private constructor(private val context: Context) {
 
     companion object {
         private const val BASE_URL= "https://back-vynils-grupo19.herokuapp.com/"
+        @SuppressLint("StaticFieldLeak")
         @Volatile
         private var INSTANCE: ApiService? = null
 
