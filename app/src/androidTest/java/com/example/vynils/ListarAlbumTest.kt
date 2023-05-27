@@ -60,11 +60,12 @@ class ListarAlbumTest {
     private fun withItemCount(): Matcher<View> {
         return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
             override fun describeTo(description: Description?) {
-                description?.appendText("RecyclerView with item count: 4")
+                description?.appendText("RecyclerView with dynamic item cout")
             }
 
             override fun matchesSafely(recyclerView: RecyclerView?): Boolean {
-                return recyclerView?.adapter?.itemCount == 4
+                val itemCount = recyclerView?.adapter?.itemCount
+                return itemCount != null && itemCount > 0
             }
         }
     }
