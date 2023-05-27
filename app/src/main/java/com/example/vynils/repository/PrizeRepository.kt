@@ -1,8 +1,8 @@
 package com.example.vynils.repository
 
 import android.content.Context
-import com.example.vynils.DTO.PerformerPrizeDTO
-import com.example.vynils.DTO.ResponsePrizeDTO
+import com.example.vynils.dto.PerformerPrizeDTO
+import com.example.vynils.dto.ResponsePrizeDTO
 import com.example.vynils.model.Prize
 import com.example.vynils.network.NetworkServiceAdapter
 import com.google.gson.Gson

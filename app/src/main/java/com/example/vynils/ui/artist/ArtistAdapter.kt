@@ -1,6 +1,7 @@
 package com.example.vynils.ui.artist
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vynils.R
 import com.example.vynils.model.Artist
-import android.content.Intent
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
-import com.example.vynils.model.Album
 
 class ArtistAdapter(private var artists: List<Artist>) :
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>() {
@@ -48,6 +45,7 @@ class ArtistAdapter(private var artists: List<Artist>) :
 
     override fun getItemCount(): Int = artists.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateArtists(newArtists: List<Artist>) {
         artists = newArtists
         notifyDataSetChanged()

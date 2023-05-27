@@ -45,7 +45,7 @@ class AlbumActivity : AppCompatActivity() {
         })
     }
     companion object{
-        val NEXT_SCREEN="details_screen"
+        const val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

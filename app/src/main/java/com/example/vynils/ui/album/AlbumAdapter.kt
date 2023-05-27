@@ -1,5 +1,6 @@
 package com.example.vynils.ui.album
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,7 @@ class AlbumAdapter(private var albums: List<Album>) :
 
     override fun getItemCount(): Int = albums.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateAlbums(newAlbums: List<Album>) {
         albums = newAlbums
         notifyDataSetChanged()

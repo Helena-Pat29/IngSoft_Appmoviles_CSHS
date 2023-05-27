@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.vynils.DTO.CreateAlbumDTO
+import com.example.vynils.dto.CreateAlbumDTO
 import com.example.vynils.MainActivity
 import com.example.vynils.R
 import com.example.vynils.genre.Genre

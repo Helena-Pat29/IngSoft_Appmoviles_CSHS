@@ -20,7 +20,7 @@ class CollectorDescriptionActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.album_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = collectorList.name.toString()
+        supportActionBar?.title = collectorList.name
 
         val recyclerView: RecyclerView = findViewById(R.id.collector_details)
         val adapter = CollectorDescriptionAdapter(collectorList)

@@ -40,14 +40,14 @@ class CollectorActivity : AppCompatActivity() {
             CollectorAdapter.OnClickListener {
             override fun onClick(position: Int, model: Collector){
                 val intent = Intent(this@CollectorActivity, CollectorDescriptionActivity::class.java)
-                intent.putExtra(CollectorActivity.NEXT_SCREEN, model)
+                intent.putExtra(NEXT_SCREEN, model)
                 startActivity(intent)
             }
         })
     }
 
     companion object{
-        val NEXT_SCREEN="details_screen"
+        const val NEXT_SCREEN="details_screen"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

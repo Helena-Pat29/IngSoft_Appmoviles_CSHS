@@ -31,7 +31,7 @@ class ListarArtistTest {
         Thread.sleep(5000)
 
         Espresso.onView(ViewMatchers.withId(R.id.artist_recycler_view))
-            .check(ViewAssertions.matches(withItemCount(1)))
+            .check(ViewAssertions.matches(withItemCount()))
 
         Espresso.onView(
             Matchers.allOf(
@@ -42,14 +42,14 @@ class ListarArtistTest {
     }
 
     // Custom matcher to check the number of items in a RecyclerView
-    fun withItemCount(expectedCount: Int): Matcher<View> {
+    private fun withItemCount(): Matcher<View> {
         return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
             override fun describeTo(description: Description?) {
-                description?.appendText("RecyclerView with item count: $expectedCount")
+                description?.appendText("RecyclerView with item count: 1")
             }
 
             override fun matchesSafely(recyclerView: RecyclerView?): Boolean {
-                return recyclerView?.adapter?.itemCount == expectedCount
+                return recyclerView?.adapter?.itemCount == 1
             }
         }
     }

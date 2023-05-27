@@ -1,6 +1,6 @@
 package com.example.vynils.model
 import android.os.Parcelable
-import com.example.vynils.DTO.PerformerPrizeDTO
+import com.example.vynils.dto.PerformerPrizeDTO
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

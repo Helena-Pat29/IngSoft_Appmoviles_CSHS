@@ -61,34 +61,48 @@
         android:textColorHint="@color/black" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/down1"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textColorHint="@color/black">
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:endIconTint="@color/black">
 
         <AutoCompleteTextView
             android:id="@+id/auto_complete_genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:hint="@string/genre"
-            android:inputType="none" />
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/down2"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textColorHint="@color/black">
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:endIconTint="@color/black">
 
         <AutoCompleteTextView
             android:id="@+id/auto_complete_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:hint="@string/record"
-            android:inputType="none" />
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
